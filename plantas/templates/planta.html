@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="plant-container">
+    <div>
+        <img src="{{ planta.foto_planta.url }}" alt="" class="image-size-plant">
+    </div>
+    <div class="plant-info">
+        <h1>{{ planta.nome_cientifico }}</h1>
+        <h2>Nome Popular: {{ planta.nome_popular }}</h2>
+        <br/>
+        <h4>Origem: {{ planta.origem }}</h4>
+        <h4>Data de Chegada: {{ planta.data_chegada }}</h4>
+        <h4>Iluminação: {{ planta.iluminacao }}</h4>
+        <h4>Rega: {{ planta.rega }}</h4>
+        <br/>
+        <p>Observações: {{ planta.observacoes }}</p>
+    </div>
+</div>
+
+
+{% endblock %}

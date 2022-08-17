@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantuário</title>
-</head>
-<body>
-    <h1>Hello plantlovers!</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+    <div class="container">
+    {% for planta in plantas %}
+        <div class="plant-card">
+            <a href="{% url 'planta' planta.id %}">
+            {% if planta.foto_planta == '' %}
+                <img src="{% static 'img/ilustracaoplanta.jpg' %}" alt="" class="image-size-index">
+            {% else %}
+                <img src="{{ planta.foto_planta.url }}" alt="" class="image-size-index">
+            {% endif %} 
+                <div class="plant-name">
+                        <h5>{{ planta.nome_cientifico }}</h5>
+                </div> 
+            </a> 
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
